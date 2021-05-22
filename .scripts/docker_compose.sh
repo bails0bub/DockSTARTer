@@ -39,7 +39,7 @@ docker_compose() {
         info "Compose will not be run."
         return 1
     fi
-    run_script 'install_docker'
+    # check docker is installed
     run_script 'install_compose'
     cd "${SCRIPTPATH}/compose/" || fatal "Failed to change directory.\nFailing command: ${F[C]}cd \"${SCRIPTPATH}/compose/\""
     eval docker-compose "${COMPOSECOMMAND}" || fatal "Docker Compose failed.\nFailing command: ${F[C]}eval docker-compose \"${COMPOSECOMMAND}\""
